@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript-Grundlagen Vue.js</title>
+</head>
+
+<body>
+    <h1>JavaScript-Grundlagen Vue.js</h1>
+    <div id='app1'>
+        <h2>Zähler</h2>
+        <button @click='hochzaehlen'>Hochzählen</button>
+        <button @click='reset'>Reset</button>
+        <p>{{ zaehler }}</p>
+    </div>
+
+    <div id='app2'>
+        <h2>Ein-Ausgabe</h2>
+        <input v-model="eingabe" type="text">
+        <button @click="kopieren">Kopieren</button>
+        <p>{{ ausgabe }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const app1 = new Vue({
+            el: '#app1',
+            data: {
+                zaehler: 0
+            },
+            methods: {
+                hochzaehlen: function () {
+                    this.zaehler = this.zaehler + 1;
+                },
+                reset: function () {
+                    this.zaehler = 0;
+                }
+            }
+        });
+
+        const app2 = new Vue({
+            el: '#app2',
+            data: {
+                eingabe: 'rein',
+                ausgabe: 'raus'
+            },
+            methods: {
+                kopieren: function () {
+                    this.ausgabe = this.eingabe;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
