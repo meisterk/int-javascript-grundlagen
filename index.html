@@ -9,9 +9,52 @@
 
 <body>
     <h1>JavaScript-Grundlagen</h1>
+    <h2>Zähler</h2>
+    <button id='hochzaehlButton'>Hochzählen</button>
+    <button id='resetButton'>Reset</button>
+    <p id="zahlenAusgabe">0</p>
+
+    <h2>Ein-Ausgabe</h2>
+    <input id='eingabe' type="text">
+    <button id='kopierButton'>Kopieren</button>
+    <p id="textAusgabe">---</p>
 
     <script>
-        console.log('Hallo');
+        // JavaScript-Objekt für HTML-Elemente
+        const zahlenAusgabe = document.querySelector('#zahlenAusgabe');
+        const hochzaehlButton = document.querySelector('#hochzaehlButton');
+        const resetButton = document.querySelector('#resetButton');
+
+        const eingabe = document.querySelector('#eingabe');
+        const kopierButton = document.querySelector('#kopierButton');
+        const textAusgabe = document.querySelector('#textAusgabe');
+
+        // Daten
+        let zaehler = 0;
+
+        // Eventhandler definieren
+        hochzaehlButton.addEventListener('click', function () {
+            // Hochzählen
+            zaehler = zaehler + 1;
+
+            // Eigenschaften des Objekts ändern
+            zahlenAusgabe.textContent = zaehler;
+        });
+
+        resetButton.addEventListener('click', function () {
+            zaehler = 0;
+
+            // Eigenschaften des Objekts ändern
+            zahlenAusgabe.textContent = zaehler;
+        });
+
+        kopierButton.addEventListener('click', function () {
+            // Text einlesen
+            const text = eingabe.value;
+
+            // Text ausgeben
+            textAusgabe.textContent = text;
+        });
     </script>
 </body>
 
